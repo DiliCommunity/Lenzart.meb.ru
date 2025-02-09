@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обновленные настройки слайдера
     const sliderOptions = {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 15,
         loop: true,
         pagination: {
             el: '.swiper-pagination',
@@ -31,12 +31,22 @@ document.addEventListener('DOMContentLoaded', function() {
             prevEl: '.swiper-button-prev',
         },
         breakpoints: {
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            375: {
+                slidesPerView: 1,
+                spaceBetween: 15,
+            },
             640: {
                 slidesPerView: 2,
+                spaceBetween: 20,
             },
             1024: {
                 slidesPerView: 3,
-            },
+                spaceBetween: 30,
+            }
         },
         on: {
             init: function() {

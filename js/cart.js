@@ -43,8 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const assembly = document.querySelector('input[name="assembly"]').checked ? subtotal * 0.1 : 0;
         const total = subtotal + assembly;
 
-        document.querySelector('.summary-item:first-child span:last-child').textContent = `${subtotal.toLocaleString()} ₽`;
-        document.querySelector('.summary-item:nth-child(2) span:last-child').textContent = `${assembly.toLocaleString()} ₽`;
-        document.querySelector('.summary-total span:last-child').textContent = `${total.toLocaleString()} ₽`;
+        // Добавляем форматирование для лучшей читаемости на мобильных
+        const formatPrice = (price) => {
+            return new Intl.NumberFormat('ru-RU', {
+                style: 'currency',
+                currency: 'RUB',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(price);
+        };
+
+        document.querySelector('.summary-item:first-child span:last-child').textContent = formatPrice(subtotal);
+        document.querySelector('.summary-item:nth-child(2) span:last-child').textContent = formatPrice(assembly);
+        document.querySelector('.summary-total span:last-child').textContent = formatPrice(total);
     }
 }); 

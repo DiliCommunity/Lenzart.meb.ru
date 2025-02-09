@@ -61,15 +61,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const productTemplate = `
             <div class="product-card" data-category="modern">
                 <div class="product-image">
-                    <img src="images/products/${category}/product1.jpg" alt="Товар">
+                    <img src="images/products/${category}/product1.jpg" alt="Товар" loading="lazy">
                     <div class="product-overlay">
-                        <button class="quick-view-btn">
+                        <button class="quick-view-btn" aria-label="Быстрый просмотр">
                             <i class="fas fa-eye"></i>
-                            Быстрый просмотр
+                            <span>Быстрый просмотр</span>
                         </button>
-                        <button class="add-to-cart-btn">
+                        <button class="add-to-cart-btn" aria-label="Добавить в корзину">
                             <i class="fas fa-shopping-cart"></i>
-                            В корзину
+                            <span>В корзину</span>
                         </button>
                     </div>
                 </div>
